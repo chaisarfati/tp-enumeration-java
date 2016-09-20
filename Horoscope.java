@@ -1,30 +1,45 @@
 package com.teachersdunet.javaintermediaire;
 
 public class Horoscope {
+    public enum Day{
+         MONDAY, 
+         TUESDAY, 
+         WEDNESDAY, 
+         THURSDAY, 
+         FRIDAY, 
+         SATURDAY, 
+         SUNDAY;
+    
+    Day(){
+        
+    }
+    
+}
+    private Day day;
 
-    private String day;
-
-    public void setDay(String day) {
+    public void setDay(Day day) {
         this.day = day;
     }
 
+
+
     public void getInfo() {
         switch (day) {
-            case "Monday":
+            case MONDAY:
                 System.out.println("Great day!");
                 break;
-            case "Tuesday":
-            case "Wednesday":
+            case TUESDAY:
+            case WEDNESDAY:
                 System.out.println("Your day will be fun!");
                 break;
-            case "Thursday":
+            case THRUSDAY:
                 System.out.println("You will find a new girlfriend.");
                 break;
-            case "Saturday":
+            case SATURDAY:
                 System.out.println("Nothing to say!");
                 break;
-            case "Friday":
-            case "Sunday":
+            case FRIDAY:
+            case SUNDAY:
                 System.out.println("You will be very lucky!");
                 break;
         }
@@ -32,11 +47,13 @@ public class Horoscope {
 
     public static void main(String[] args) {
         Horoscope h = new Horoscope();
-        h.setDay("Monday");
+        h.setDay(Day.MONDAY);
         h.getInfo();
-        h.setDay("djkddk");
-        h.getInfo();
-        h.setDay("Saturday");
+        /*  Erreur de compilation
+         *      h.setDay("djkddk"); 
+         *      h.getInfo();
+        */
+        h.setDay(Day.SATURDAY);
         h.getInfo();
     }
 }
